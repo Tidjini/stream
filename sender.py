@@ -1,3 +1,5 @@
+import socket
+import numpy as np
 import cv2
 import pyautogui
 
@@ -7,3 +9,4 @@ class Sender:
         self.__host = host
         self.__port = port
         self.__encoding_parameters = [int(cv2.IMWRITE_JPEG_QUALITY), 90]
+        self.__sender = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
