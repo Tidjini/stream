@@ -121,7 +121,7 @@ class Receiver:
 # # # When You Are Done
 # # server.stop_server()
 
-
+# todo set Host Address as Host for socket
 if __name__ == "__main__":
     receiver = Receiver(host="192.168.1.38")
 

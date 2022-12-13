@@ -99,6 +99,7 @@ class Sender:
         return frame
 
 
+# todo get arguments from console
 if __name__ == "__main__":
     sender = Sender("192.168.1.38", 8000, restart=10)
     threading.Thread(target=sender.start).start()
