@@ -123,7 +123,7 @@ class Receiver:
 
 
 if __name__ == "__main__":
-    receiver = Receiver()
+    receiver = Receiver(host="192.168.1.38")
 
     threading.Thread(target=receiver.start).start()
 
