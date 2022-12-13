@@ -46,3 +46,20 @@ class Sender:
                 self.__running = False
 
         cv2.destroyAllWindows()
+
+    def stop(self):
+        if not self.__running:
+            print("Sender not send data")
+            return
+
+        self.__running = False
+
+
+if __name__ == "__main__":
+    sender = Sender("127.0.0.1", 8000)
+    threading.Thread(target=sender.start).start()
+
+    while input("") != "q":
+        continue
+
+    sender.stop()
