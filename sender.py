@@ -1,5 +1,6 @@
 import socket
 import threading
+import pickle
 import numpy as np
 import struct
 import cv2
@@ -36,10 +37,12 @@ class Sender:
             size = len(data)
 
             try:
-                self.__client_socket.sendall(struct.pack(">L", size) + data)
+                self.__sender.sendall(struct.pack(">L", size) + data)
             except ConnectionResetError:
                 self.__running = False
             except ConnectionAbortedError:
                 self.__running = False
             except BrokenPipeError:
                 self.__running = False
+
+        cv2.destroyAllWindows()
