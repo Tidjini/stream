@@ -124,7 +124,10 @@ class Receiver:
 # todo set Host Address as Host for socket
 # pyinstaller --onefile receiver.py
 if __name__ == "__main__":
-    receiver = Receiver(host="192.168.1.38")
+
+    host = input("Enter your host: ")
+
+    receiver = Receiver(host=host)
 
     threading.Thread(target=receiver.start).start()
 
