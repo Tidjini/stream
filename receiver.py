@@ -125,7 +125,14 @@ class Receiver:
 # pyinstaller --onefile receiver.py
 if __name__ == "__main__":
 
-    host = input("Enter your host: ")
+    import sys
+
+    host = None
+    if len(sys.argv) >= 2:
+        host = sys.argv[1]
+
+    if host is None:
+        host = input("Enter your host: ")
 
     receiver = Receiver(host=host)
 

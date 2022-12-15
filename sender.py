@@ -102,7 +102,16 @@ class Sender:
 # todo get arguments from console
 # pyinstaller --onefile sender.py
 if __name__ == "__main__":
-    host = input("Enter your host: ")
+
+    import sys
+
+    host = None
+
+    if len(sys.argv) >= 2:
+        host = sys.argv[1]
+    if host is None:
+        host = input("Enter your host: ")
+
     sender = Sender(host=host, port=8000, restart=10)
     threading.Thread(target=sender.start).start()
 
